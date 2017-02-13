@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/Lucas/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -71,8 +71,6 @@ source $LUSTRE_INSTALL/setenv.sh
 autoload -U compinit
 compinit
 setopt completealiases
-
-
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
