@@ -49,7 +49,7 @@ ZSH_THEME="../custom/bira"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew ruby)
+plugins=(git jump vi-mode history-substring-search)
 
 # User configuration
 
@@ -66,17 +66,14 @@ export PATH
 export LUSTRE_INSTALL=/usr/local/lustre-v4-III-c-macosx
 source $LUSTRE_INSTALL/setenv.sh
 
+source $ZSH/oh-my-zsh.sh
 
 ######### AUTOCOMPLETION #########
 autoload -U compinit
 compinit
 setopt completealiases
 
-
-
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
