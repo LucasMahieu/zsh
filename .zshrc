@@ -1,14 +1,14 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/Lucas/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="../custom/bira"
+ZSH_THEME="../custom/agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+#CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -27,7 +27,7 @@ ZSH_THEME="../custom/bira"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -43,40 +43,60 @@ ZSH_THEME="../custom/bira"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+#ZSH_CUSTOM=$ZSH/custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
 plugins=(git jump vi-mode history-substring-search)
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 ##### Python path
-PYTHONPATH="/usr/local/Cellar/pyqt/4.11.4/lib/python3.5/site-packages/:${PYTHONPATH}"
-PYTHONPATH="/usr/local/Cellar/python3/3.5.1/bin/:${PYTHONPATH}"
+#PYTHONPATH="/usr/local/Cellar/pyqt/4.11.4/lib/python3.5/site-packages/:${PYTHONPATH}"
+#PYTHONPATH="/usr/local/Cellar/python3/3.5.1/bin/:${PYTHONPATH}"
 export PYTHONPATH
 
+# Pour l'environement de ruby
+#eval "$(rbenv init -)"
+
+
+## comment that lines because the `brew doctor` cmd said that 
+## a *-config were found into the path into /usr/local/gnat/bin
+## to use it, uncomment that ligne
 ##### Gnat path
-PATH=$PATH:/usr/local/gnat/bin
-export PATH
+#PATH=$PATH:/usr/local/gnat/bin
+#export PATH
 ####### Lustre path #########
-export LUSTRE_INSTALL=/usr/local/lustre-v4-III-c-macosx
-source $LUSTRE_INSTALL/setenv.sh
+#export LUSTRE_INSTALL=/usr/local/lustre-v4-III-c-macosx
+#source $LUSTRE_INSTALL/setenv.sh
 
 source $ZSH/oh-my-zsh.sh
 
+# Pour oracle / sqlplus
+#export PATH=~/instantclient_11_2:$PATH
+#alias sqlplus='rlwrap sqlplus'
 ######### AUTOCOMPLETION #########
 autoload -U compinit
 compinit
 setopt completealiases
 
 # export MANPATH="/usr/local/man:$MANPATH"
+######## GLOBBING ETENDU au regexp###############
+#setopt extendedglob
+#setopt numericglobsort
+
+######### PATH ################@
+#export PATH=$PATH:/usr/local/Caskroom/gcc-arm-embedded/5_2-2015q4,20151219/gcc-arm-none-eabi-5_2-2015q4/bin
+#export PATH=/usr/local/bin:$HOME/bin:$PATH
+
+#export MANPATH="/usr/local/man:$MANPATH"
+#export PATH="/usr/local/sbin:$PATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+ export LANG=fr.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -97,16 +117,20 @@ setopt completealiases
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="mvim -v ~/.zshrc"
+alias zconf="mvim -v ~/.zshrc"
+alias zsrc="source ~/.zshrc"
 alias ohmyzsh="mvim -v ~/.oh-my-zsh"
+
+### zsh completion 
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 
 ######## LISTE DES ALIAS #########
 
 alias ls='ls -GF'
-alias ll='ls -a -l -h -F'
-alias la='ls -aF'
-alias lla='ls -AlFh'
+alias ll='ls -a -l -h -F -G'
+alias la='ls -aF -G'
+alias lla='ls -AlFhG'
 alias clr='clear'
 
 ## .tar ##
@@ -117,4 +141,11 @@ alias tarc='tar -zcvf'
 alias vim='mvim -v'
 
 # Hombrew ctags
-alias ctags="`brew --prefix`/bin/ctags"
+#alias ctags="`brew --prefix`/bin/ctags"
+alias meteo="curl -4 wttr.in/Grenoble"
+
+# CP alias
+alias cpr='cp -r'
+
+# Jump alias
+alias j='jump'
